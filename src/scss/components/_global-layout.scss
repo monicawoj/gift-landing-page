@@ -20,6 +20,10 @@ body {
 
 .header {
   @include flex(row, space-between, center, wrap);
+  @include screen(sm) {
+    height: 300px;
+    width: 100%;
+  }
   height: 134px;
   background: $white;
   box-shadow: 0 15px 30px rgba(123, 123, 123, 0.05);
@@ -32,6 +36,9 @@ body {
         margin-left: 128px;
         background-image: url("../assets/images/box.png");
         @include background-center;
+        @include screen(sm) {
+          margin-left: 0;
+        }
       }
       h1 {
         @include font($mont, $blue, 600, 23px);
@@ -46,6 +53,10 @@ body {
   .header-nav {
     width: 441px;
     margin-right: 136px;
+    @include screen(sm) {
+      margin: 0;
+      width: 100%;
+    }
     nav {
       @include font($mont, $black, 400, 24px, uppercase);
       .header-nav-list {
@@ -54,8 +65,14 @@ body {
         padding: 0;
         list-style: none;
         @include flex(row, space-between, center);
+        @include screen(sm) {
+          @include flex(column, center, space-between);
+        }
         li {
           @include transition(all,0.5s,ease);
+          @include screen(sm) {
+            padding: 20px;
+          }
           &:hover {
             border-bottom: 2px solid $blue;
             padding-bottom: 16px;
@@ -72,16 +89,16 @@ body {
 }
 
 .contact-me {
+  width: 100%;
   @include flex(row, space-between, center);
-  height: 950px;
+  @include screen(sm) {
+    width: 100%;
+  }
   .contact-me-visual {
     max-width: 968px;
     width: 968px;
-    height: 100%;
+    height: 950px;
     position: relative;
-    @media screen and (min-width: 1700px) {
-      width: 50vw;
-    }
     .image {
       width: 100%;
       height: 100%;
@@ -97,15 +114,26 @@ body {
       opacity: 0.5;
       @include background-center;
     }
+    @include screen(sm) {
+      display: none;
+    }
+    @include screen(lg) {
+      height: 20vh;
+      width: 100%;
+    }
   }
   .contact-me-form {
     flex: 1;
     height: 100%;
+    width: 100%;
     @include flex(row, center, center);
     .form-holder {
       width: 676px;
       height: 710px;
       @include flex(column, flex-start, flex-start);
+      @include screen(sm) {
+        width: 100%;
+      }
       h2 {
         @include font($mont, $black, 700, 50px);
         margin: 0;
@@ -121,6 +149,9 @@ body {
           width: 100%;
           margin-bottom: 27px;
           @include flex(row, center, center);
+          @include screen(sm) {
+            @include flex(column, center, center);
+          }
           .form-field {
             @include flex(column, center, flex-start);
             @include font($sans, $black, 600, 17px);
@@ -159,6 +190,7 @@ body {
           @include border-radius(50px);
           background-color: $blue;
           opacity: 0.65;
+          margin-top: 70px;
           input {
             @include font($sans, $white, 700, 20px);
             height: 48px;
@@ -204,10 +236,10 @@ body {
         border-bottom: 3px solid $white;
         height: 32px;
         width: 400px;
-        margin-right: 20px;
+        @include margin(40px, 20px, null, null);
         .icon {
           height: 19px;
-          width: 14px;
+          width: 16px;
           margin-right: 17px;
           @include background-center;
         }
