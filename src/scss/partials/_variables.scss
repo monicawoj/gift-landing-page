@@ -6,12 +6,17 @@ $red: #ea1f41;
 $blue: #20b7fa;
 $teal: #20ebdd;
 $grey: rgba(112, 112, 112, 0.25);
-$gradient: linear-gradient(180deg, var(--blue) 0%, #20ebdd 100%);
+$gradient: linear-gradient(180deg, $blue 0%, $teal 100%);
 
 //Fonts
 $sans: "Open Sans";
 $mont: "Montserrat";
 
 //Sizing
-$page-width: 1920px;
-$page-height: calc(752px + 1081px);
+$pageWidth: 1920px;
+$pageHeight: calc(752px + 1081px);
+
+//Breakpoints
+$sm: 480px; //smartphone
+$med: 768px; //tablet portrait + some smartphone landscape
+$lg: 1024px; //table landscape + desktop

@@ -3,7 +3,249 @@
 }
 
 body {
-  background: $colorBg;
-  font-family: $fontFamily;
+  background: $white;
+  font-family: $sans;
+  @include flex(row,center,flex-start);
 }
 
+.page {
+  max-width: $pageWidth;
+  width: 100%;
+  @include flex(column,flex-start,flex-start);
+}
+
+.container {
+  width: 100%;
+}
+
+.header {
+  @include flex(row, space-between, center, wrap);
+  height: 134px;
+  background: $white;
+  box-shadow: 0 15px 30px rgba(123, 123, 123, 0.05);
+  .header-logo {
+    .header-logo-link {
+      @include flex(row, center, center);
+      .header-logo-image {
+        width: 57px;
+        height: 65px;
+        margin-left: 128px;
+        background-image: url("../assets/images/box.png");
+        @include background-center;
+      }
+      h1 {
+        @include font($mont, $blue, 600, 23px);
+        margin-left: 31px;
+        @include transition(all,0.5s,ease);
+        &:hover {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .header-nav {
+    width: 441px;
+    margin-right: 136px;
+    nav {
+      @include font($mont, $black, 400, 24px, uppercase);
+      .header-nav-list {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        @include flex(row, space-between, center);
+        li {
+          @include transition(all,0.5s,ease);
+          &:hover {
+            border-bottom: 2px solid $blue;
+            padding-bottom: 16px;
+            padding-top: 16px;
+            font-weight: bold;
+          }
+          a {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}
+
+.contact-me {
+  @include flex(row, space-between, center);
+  height: 950px;
+  .contact-me-visual {
+    max-width: 968px;
+    width: 968px;
+    height: 100%;
+    position: relative;
+    @media screen and (min-width: 1700px) {
+      width: 50vw;
+    }
+    .image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-image: url("../assets/images/giving-box.png");
+      @include background-center;
+    }
+    .overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-image: linear-gradient(180deg, rgba(32, 183, 250, 0) 0%, $teal 100%);
+      opacity: 0.5;
+      @include background-center;
+    }
+  }
+  .contact-me-form {
+    flex: 1;
+    height: 100%;
+    @include flex(row, center, center);
+    .form-holder {
+      width: 676px;
+      height: 710px;
+      @include flex(column, flex-start, flex-start);
+      h2 {
+        @include font($mont, $black, 700, 50px);
+        margin: 0;
+        vertical-align: top;
+        text-align: left;
+        line-height: 80px;
+        width: 100%;
+        padding-bottom: 17px;
+      }
+      form {
+        @include flex(column, space-between, flex-start);
+        .form-field-row {
+          width: 100%;
+          margin-bottom: 27px;
+          @include flex(row, center, center);
+          .form-field {
+            @include flex(column, center, flex-start);
+            @include font($sans, $black, 600, 17px);
+            label {
+              margin-bottom: 19px;
+            }
+            input {
+              padding: 15px;
+              @include border-radius(5px);
+            }
+            #contact-me-email {
+              width: 398px;
+              margin-right: 15px;
+              &::placeholder {
+                color: $red;
+              }
+            }
+            #contact-me-name {
+              width: 262px;
+              border: 1px solid $green;
+            }
+          }
+          textarea {
+            width: 676px;
+            height: 281px;
+            border: 1px solid $grey;
+            resize: none;
+            @include padding(33px,32px,1px,29px);
+            @include border-radius(5px);
+          }
+        }
+        .form-submit {
+          height: 49px;
+          width: 342px;
+          @include flex(row, center, center);
+          @include border-radius(50px);
+          background-color: $blue;
+          opacity: 0.65;
+          input {
+            @include font($sans, $white, 700, 20px);
+            height: 48px;
+            width: 398px;
+            @include border-radius(50px);
+            background-color: $blue;
+            @include transition(all,2s,ease);
+            &:hover {
+              background-color: $white;
+              border: 1px solid $blue;
+              @include font($sans, $blue, 700, 24px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.sign-up {
+  height: 750px;
+  background: $gradient;
+  .form-holder {
+    width: 100%;
+    @include flex(column, flex-start, center);
+  }
+  h3 {
+    @include font($mont, $white, 700, 50px);
+    @include margin(221px, null, null, null);
+    width: 100%;
+    text-align: center;
+    line-height: 72px;
+    padding-bottom: 90px;
+  }
+  form {
+    width: 100%;
+    @include flex(column, center, center);
+    .form-field-row {
+      width: 100%;
+      @include flex(row, center, center);
+      .form-field {
+        @include flex(row, flex-start, center);
+        border-bottom: 3px solid $white;
+        height: 32px;
+        width: 400px;
+        margin-right: 20px;
+        .icon {
+          height: 19px;
+          width: 14px;
+          margin-right: 17px;
+          @include background-center;
+        }
+        .user-icon {
+          background-image: url("../assets/icons/user-icon.png");
+        }
+        .email-icon {
+          background-image: url("../assets/icons/email-icon.png");
+        }
+        input {
+          @include font($sans, $white, 400, 20px);
+          &::placeholder {
+            @include font($sans, $white, 400, 20px);
+          }
+        }
+      }
+      .form-submit {
+        height: 56px;
+        width: 300px;
+        @include flex(row, center, center);
+        @include border-radius(50px);
+        background-color: $white;
+        margin-top: 100px;
+        input {
+          @include font($sans, $blue, 700, 20px);
+          @include border-radius(50px);
+          height: 100%;
+          width: 100%;
+        }
+        @include transition(all,2s,ease);
+        &:hover {
+          background-color: $blue;
+          input {
+            @include font($sans, $white, 700, 24px);
+            border: 1px solid $white;
+          }
+        }
+      }
+    }
+  }
+}

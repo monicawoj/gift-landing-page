@@ -1,66 +1,31 @@
-.container {
-	max-width: 1140px;
-	margin: 0 auto;
+a {
+  text-decoration: none;
+  cursor: pointer;
+  @include transition(all,2s,ease);
+  &:hover {
+    font-weight: 700;
+  }
 }
 
-.btn {
-	//padding: 25px 70px;
-	border: 0;
-	padding: 20px 40px;
-	text-transform: uppercase;
-	background: #333;
-	color: #fff;
-	border-radius: 6px;
-	display: inline-block;
-	text-align: center;
-	text-decoration: none;
-}
-.btn-primary {
-	background: #333;
-	color: #fff;
-}
-.btn-secondary {
-	background: #fff;
-	color: #333;
+input {
+  border:none;
+  background-image:none;
+  background-color:transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
-/* -------------------------------------------------------------------------------- */
-/* visible class */
-/* -------------------------------------------------------------------------------- */
-.hidden {
-	display: none !important;
-	visibility: hidden;
+.error {
+  border: 1px solid $red;
 }
 
-.visuallyhidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-    white-space: nowrap;
-
-	.focusable:active,
-	.focusable:focus {
-		clip: auto;
-		height: auto;
-		margin: 0;
-		overflow: visible;
-		position: static;
-		width: auto;
-	}
+.valid {
+  border: 1px solid $green;
 }
 
-/* -------------------------------------------------------------------------------- */
-/* clearfix */
-/* -------------------------------------------------------------------------------- */
-.clearfix {
-	&:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
+.form-submit {
+  input {
+    cursor: pointer;
+  }
 }
