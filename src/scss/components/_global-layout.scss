@@ -36,7 +36,7 @@ body {
         margin-left: 128px;
         background-image: url("../assets/images/box.png");
         @include background-center;
-        @include screen(sm) {
+        @include screen(lg) {
           margin-left: 0;
         }
       }
@@ -53,6 +53,10 @@ body {
   .header-nav {
     width: 441px;
     margin-right: 136px;
+    @include screen(lg) {
+      margin: 0;
+      width: 50%;
+    }
     @include screen(sm) {
       margin: 0;
       width: 100%;
@@ -95,7 +99,6 @@ body {
     width: 100%;
   }
   .contact-me-visual {
-    max-width: 968px;
     width: 968px;
     height: 950px;
     position: relative;
@@ -127,12 +130,16 @@ body {
     height: 100%;
     width: 100%;
     @include flex(row, center, center);
+    @include screen(lg) {
+      @include flex(column, center, center);
+    }
     .form-holder {
       width: 676px;
       height: 710px;
       @include flex(column, flex-start, flex-start);
       @include screen(sm) {
-        width: 100%;
+        width: 90%;
+        height: auto;
       }
       h2 {
         @include font($mont, $black, 700, 50px);
@@ -145,6 +152,9 @@ body {
       }
       form {
         @include flex(column, space-between, flex-start);
+        @include screen(sm) {
+          width: 100%;
+        }
         .form-field-row {
           width: 100%;
           margin-bottom: 27px;
@@ -155,6 +165,9 @@ body {
           .form-field {
             @include flex(column, center, flex-start);
             @include font($sans, $black, 600, 17px);
+            @include screen(sm) {
+              width: 100%;
+            }
             label {
               margin-bottom: 19px;
             }
@@ -168,10 +181,16 @@ body {
               &::placeholder {
                 color: $red;
               }
+              @include screen(sm) {
+                width: 100%;
+              }
             }
             #contact-me-name {
               width: 262px;
               border: 1px solid $green;
+              @include screen(sm) {
+                width: 100%;
+              }
             }
           }
           textarea {
@@ -181,6 +200,9 @@ body {
             resize: none;
             @include padding(33px,32px,1px,29px);
             @include border-radius(5px);
+            @include screen(sm) {
+              width: 100%;
+            }
           }
         }
         .form-submit {
