@@ -1,0 +1,139 @@
+.contact-me {
+  width: 100%;
+  @include flex(row, space-between, center);
+  @include screen(sm) {
+    width: 100%;
+  }
+  .contact-me-visual {
+    width: 968px;
+    height: 950px;
+    position: relative;
+    .image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-image: url("../assets/images/giving-box.png");
+      @include background-center;
+    }
+    .overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-image: linear-gradient(180deg, rgba(32, 183, 250, 0) 0%, $teal 100%);
+      opacity: 0.5;
+      @include background-center;
+    }
+    @include screen(sm) {
+      display: none;
+    }
+    @include screen(lg) {
+      height: 20vh;
+      width: 100%;
+    }
+  }
+  .contact-me-form {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    @include flex(row, center, center);
+    @include screen(lg) {
+      @include flex(column, center, center);
+    }
+    .form-holder {
+      width: 676px;
+      height: 710px;
+      @include flex(column, flex-start, flex-start);
+      @include screen(sm) {
+        width: 90%;
+        height: auto;
+      }
+      h2 {
+        @include font($mont, $black, 700, 50px);
+        margin: 0;
+        vertical-align: top;
+        text-align: left;
+        line-height: 80px;
+        width: 100%;
+        padding-bottom: 17px;
+      }
+      form {
+        @include flex(column, space-between, flex-start);
+        @include screen(sm) {
+          width: 100%;
+        }
+        .form-field-row {
+          width: 100%;
+          margin-bottom: 27px;
+          @include flex(row, center, center);
+          @include screen(sm) {
+            @include flex(column, center, center);
+          }
+          .form-field {
+            @include flex(column, center, flex-start);
+            @include font($sans, $black, 600, 17px);
+            @include screen(sm) {
+              width: 100%;
+            }
+            label {
+              margin-bottom: 19px;
+            }
+            input {
+              padding: 15px;
+              @include border-radius(5px);
+            }
+            #contact-me-email {
+              width: 398px;
+              margin-right: 15px;
+              &::placeholder {
+                color: $red;
+              }
+              @include screen(sm) {
+                width: 100%;
+              }
+            }
+            #contact-me-name {
+              width: 262px;
+              border: 1px solid $green;
+              @include screen(sm) {
+                width: 100%;
+              }
+            }
+          }
+          textarea {
+            width: 676px;
+            height: 281px;
+            border: 1px solid $grey;
+            resize: none;
+            @include padding(33px,32px,1px,29px);
+            @include border-radius(5px);
+            @include screen(sm) {
+              width: 100%;
+            }
+          }
+        }
+        .form-submit {
+          height: 49px;
+          width: 342px;
+          @include flex(row, center, center);
+          @include border-radius(50px);
+          background-color: $blue;
+          opacity: 0.65;
+          margin-top: 70px;
+          input {
+            @include font($sans, $white, 700, 20px);
+            height: 48px;
+            width: 398px;
+            @include border-radius(50px);
+            background-color: $blue;
+            @include transition(all,2s,ease);
+            &:hover {
+              background-color: $white;
+              border: 1px solid $blue;
+              @include font($sans, $blue, 700, 24px);
+            }
+          }
+        }
+      }
+    }
+  }
+}

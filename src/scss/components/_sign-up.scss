@@ -1,0 +1,74 @@
+.sign-up {
+  height: 750px;
+  background: $gradient;
+  .form-holder {
+    width: 100%;
+    @include flex(column, flex-start, center);
+  }
+  h3 {
+    width: 100%;
+    text-align: center;
+    line-height: 72px;
+    padding-bottom: 90px;
+    @include font($mont, $white, 700, 50px);
+    @include margin(221px, null, null, null);
+    @include screen(sm) {
+      margin-top: 0;
+    }
+  }
+  form {
+    width: 100%;
+    @include flex(column, center, center);
+    .form-field-row {
+      width: 100%;
+      @include flex(row, center, center);
+      .form-field {
+        @include flex(row, flex-start, center);
+        border-bottom: 3px solid $white;
+        height: 32px;
+        width: 400px;
+        @include margin(40px, 20px, null, null);
+        .icon {
+          height: 19px;
+          width: 16px;
+          margin-right: 17px;
+          @include background-center;
+        }
+        .user-icon {
+          background-image: url("../assets/icons/user-icon.png");
+        }
+        .email-icon {
+          background-image: url("../assets/icons/email-icon.png");
+        }
+        input {
+          @include font($sans, $white, 400, 20px);
+          &::placeholder {
+            @include font($sans, $white, 400, 20px);
+          }
+        }
+      }
+      .form-submit {
+        height: 56px;
+        width: 300px;
+        @include flex(row, center, center);
+        @include border-radius(50px);
+        background-color: $white;
+        margin-top: 100px;
+        input {
+          @include font($sans, $blue, 700, 20px);
+          @include border-radius(50px);
+          height: 100%;
+          width: 100%;
+        }
+        @include transition(all,2s,ease);
+        &:hover {
+          background-color: $blue;
+          input {
+            @include font($sans, $white, 700, 24px);
+            border: 1px solid $white;
+          }
+        }
+      }
+    }
+  }
+}
